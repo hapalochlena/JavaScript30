@@ -96,15 +96,15 @@ const people = [
 
 // --
 
-const category = document.querySelector(".mw-category");
-const links = Array.from(category.querySelectorAll("a"));
-// const links = [...category.querySelectorAll("a")];
+// const category = document.querySelector(".mw-category");
+// const links = Array.from(category.querySelectorAll("a"));
+// // const links = [...category.querySelectorAll("a")];
 
-// convert list of links into list of names
+// // convert list of links into list of names
 
-const de = links
-            .map(link => link.textContent)
-            .filter(streetName => streetName.includes("de"));
+// const de = links
+//             .map(link => link.textContent)
+//             .filter(streetName => streetName.includes("de"));
 
 // Error: .map doesn't work because this time, it's a NodeList not an Array!
 // --> Array.from
@@ -114,6 +114,14 @@ const de = links
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
+const sorted = people.sort((lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(", ");
+  const [bLast, bFirst] = nextOne.split(", ");
+  return aLast > bLast ? 1 : -1;
+})
+
+console.log(sorted)
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
