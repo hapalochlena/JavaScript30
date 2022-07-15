@@ -60,12 +60,18 @@ const people = [
 //   }
 // })
 
-const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1)
+// const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1)
 
-console.table(ordered);
+// console.table(ordered);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
+
+const totalYears = inventors.reduce((total, person) => {
+  return total + (person.passed - person.year);
+}, 0); 
+
+console.log(totalYears)
 
 // 5. Sort the inventors by years lived
 
