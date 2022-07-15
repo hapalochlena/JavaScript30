@@ -115,14 +115,29 @@ const people = [
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 
-const sorted = people.sort((lastOne, nextOne) => {
-  const [aLast, aFirst] = lastOne.split(", ");
-  const [bLast, bFirst] = nextOne.split(", ");
-  return aLast > bLast ? 1 : -1;
-})
+// const sorted = people.sort((lastOne, nextOne) => {
+//   const [aLast, aFirst] = lastOne.split(", ");
+//   const [bLast, bFirst] = nextOne.split(", ");
+//   return aLast > bLast ? 1 : -1;
+// })
 
-console.log(sorted)
+// console.log(sorted)
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+// (Explanation of code below:)
+// Start with a blank object; then every time we loop over one, we first see
+// if there is a 0 at all to work with, if not we need to make an entry for that;
+// then we go ahead and increment it.
+
+const transportation = data.reduce(function(obj, item) {
+  if(!obj[item]) {
+    obj[item] = 0; // setting the initial item to 0
+  }
+  obj[item]++;
+  return obj;
+}, {}) // blank object
+
+console.log(transportation);
